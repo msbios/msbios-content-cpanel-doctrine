@@ -23,21 +23,21 @@
       "MSBiosTest\\Content\\CPanel\\Doctrine\\": "tests/"
     }
   },
-  "require": {
-    "msbios/content-cpanel": "^1.0"
-  },
   "require-dev": {
     "msbios/content": "^1.0",
-    "msbios/application": "^1.0",
-    "msbios/resource": "^1.0",
-    "msbios/authentication": "^1.0",
-    "msbios/guard": "^1.0",
-    "msbios/cpanel": "^1.0",
-    "msbios/guard-cpanel": "^1.0",
-    "msbios/guard-resource": "^1.0",
-    "msbios/guard-developer-tools": "^1.0",
+    "msbios/content-doctrine": "^1.0",
+    "msbios/content-cpanel": "^1.0",
+    "msbios/portal": "^1.0",
+    "msbios/doctrine": "^1.0",
+    "msbios/resource-doctrine": "^1.0",
+    "msbios/authentication-doctrine": "^1.0",
+    "msbios/cpanel-doctrine": "^1.0",
+    "msbios/guard-doctrine": "^1.0",
+    "msbios/guard-resource-doctrine": "^1.0",
+    "msbios/guard-cpanel-doctrine": "^1.0",
+    "msbios/test": "^1.0",
     "msbios/debug": "^1.0",
-    "msbios/test": "^1.0"
+    "msbios/guard-developer-tools": "^1.0"
   },
   "scripts": {
     "cs-check": "phpcs",
