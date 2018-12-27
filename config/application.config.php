@@ -8,7 +8,6 @@
 return [
     // Retrieve list of modules used in this application.
     'modules' => [
-        'MSBios\Content\Resource',
         'Zend\Log',
         'Zend\Db',
         'Zend\I18n',
@@ -59,9 +58,12 @@ return [
         'MSBios\Guard\CPanel\Doctrine',
         'MSBios\CPanel\Doctrine',
         'MSBios\Cache',
+        'MSBios\Session',
+        'MSBios\Permissions\Acl',
 
         'MSBios\Content',
         'MSBios\Content\Doctrine',
+        'MSBios\Content\Resource',
         'MSBios\Content\Resource\Doctrine',
         'MSBios\Content\CPanel',
         'MSBios\Content\CPanel\Doctrine',

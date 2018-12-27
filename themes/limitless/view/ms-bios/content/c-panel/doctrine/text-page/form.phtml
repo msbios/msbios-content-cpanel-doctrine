@@ -5,6 +5,12 @@
  */
 namespace MSBios\CPanel;
 
+// Add jses
+$this->headScript()
+    ->prependFile($this->basePath('limitless/assets/js/plugins/forms/inputs/formatter.min.js'))
+    ->prependFile($this->basePath('limitless/ckeditor/ckeditor.js'))
+;
+
 /** @var \Zend\Form\Form $form */
 $form = $this->form;
 $form->prepare();
@@ -20,58 +26,67 @@ $form->prepare();
         ])); ?>
 
         <?= $this->partial('partial/element.phtml', [
-            'element' => $form->get('firstname')
+            'element' => $form->get('name')
                 ->setAttributes([
                     'required' => 'required',
-                    'placeholder' => $this->translate('Enter user first name')
+                    'placeholder' => $this->translate('Enter text page name')
                 ]),
-            'label' => $this->translate('First Name'),
+            'label' => $this->translate('Name'),
         ]); ?>
 
         <?= $this->partial('partial/element.phtml', [
-            'element' => $form->get('lastname')
+            'element' => $form->get('slug')
                 ->setAttributes([
                     'required' => 'required',
-                    'placeholder' => $this->translate('Enter user last name')
+                    'placeholder' => $this->translate('Enter text page name')
                 ]),
-            'label' => $this->translate('Last Name')
+            'label' => $this->translate('Slug'),
         ]); ?>
 
         <?= $this->partial('partial/element.phtml', [
-            'element' => $form->get('username')
+            'element' => $form->get('metaTitle')
                 ->setAttributes([
                     'required' => 'required',
-                    'placeholder' => $this->translate('Enter username')
+                    'placeholder' => $this->translate('Enter text page meta title')
                 ]),
-            'label' => $this->translate('Username')
+            'label' => $this->translate('Meta Title'),
         ]); ?>
 
         <?= $this->partial('partial/element.phtml', [
-            'element' => $form->get('email')
+            'element' => $form->get('metaKeywords')
                 ->setAttributes([
                     'required' => 'required',
-                    'placeholder' => $this->translate('Enter user email'),
-                    'autocomplete' => 'off'
+                    'placeholder' => $this->translate('Enter text page meta keywords')
                 ]),
-            'label' => $this->translate('Email')
+            'label' => $this->translate('Meta Keywords'),
         ]); ?>
 
         <?= $this->partial('partial/element.phtml', [
-            'element' => $form->get('password')
+            'element' => $form->get('metaDescription')
                 ->setAttributes([
-                    'placeholder' => $this->translate('Enter user password'),
-                    'autocomplete' => 'off'
+                    'required' => 'required',
+                    'placeholder' => $this->translate('Enter text page meta description')
                 ]),
-            'label' => $this->translate('Password')
+            'label' => $this->translate('Meta Description'),
         ]); ?>
 
         <?= $this->partial('partial/element.phtml', [
-            'element' => $form->get('confirm')
+            'element' => $form->get('content')
+                ->setAttribute('id', 'content')
                 ->setAttributes([
-                    'placeholder' => $this->translate('Confirm user password'),
-                    'autocomplete' => 'off'
+                    'required' => 'required',
+                    'placeholder' => $this->translate('Enter text page content')
                 ]),
-            'label' => $this->translate('Confirm')
+            'label' => $this->translate('Content'),
+        ]); ?>
+
+        <?= $this->partial('partial/element.phtml', [
+            'element' => $form->get('state')
+                ->setAttributes([
+                    'required' => 'required',
+                    'placeholder' => $this->translate('Select state')
+                ]),
+            'label' => $this->translate('State'),
         ]); ?>
 
         <div class="text-right">
@@ -85,3 +100,9 @@ $form->prepare();
         <?= $this->form()->closeTag(); ?>
     </div>
 </div>
+
+<?php $this->inlineScript()->captureStart(); ?>
+    CKEDITOR.replace('content', {
+        height: '250px'
+    });
+<?php $this->inlineScript()->captureEnd(); ?>
